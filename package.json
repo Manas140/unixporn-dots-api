@@ -1,0 +1,20 @@
+{
+  "name": "api",
+  "version": "0.0.1",
+  "description": "unixporn dots api",
+  "main": "index.js",
+  "scripts": {
+    "test": "node . -v"
+  },
+  "keywords": [],
+  "author": "Manas140",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/manas140/unixporn-dots-api.git"
+  },
+  "bugs": {
+    "url": "https://github.com/manas140/unixporn-dots-api/issues"
+  },
+  "homepage": "https://github.com/manas140/unixporn-dots-api#readme"
+}
