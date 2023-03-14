@@ -4,7 +4,7 @@
   "description": "unixporn dots api",
   "main": "index.js",
   "scripts": {
-    "test": "node . -v"
+    "start": "node index.js"
   },
   "keywords": [],
   "author": "Manas140",

@@ -4,7 +4,7 @@ const fs = require("fs");
 
 const server = http.createServer((req, res) => {
   if (req.url.startsWith('/api')) {
-    let url = req.url.split('/');
+    const url = req.url.split('/');
 
     if ( ["dotfiles", "gtk-themes", "icons"].includes(url[2])) {
       https.get('https://raw.githubusercontent.com/unixporn-dots/unixporn-dots.github.io/main/js/assets/' + url[2] + '.js', resp => {
