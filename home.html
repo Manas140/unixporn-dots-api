@@ -4,9 +4,47 @@
     <title></title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="css/style.css" rel="stylesheet">
   </head>
-  <body style="background: #151515;">
-  
-  </body>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      color: #e8e3e3;
+      background: #151515;
+      border-radius: 10px;
+    }
+    h1 {
+      text-align: center;
+    }
+    body {
+      height: 90vh;
+      display: grid;
+      justify-content:center;
+      align-content: center;
+      gap: 2em;
+      padding: 5vh;
+    }
+    a, b, h3 {
+      color: #8DA3B9;
+    }
+    b { background: #1c1c1c; }
+    p {
+      width: fit-content;
+      padding: 1em 2em;
+      background: #1c1c1c;
+    } 
+    ul, li {
+      display: grid;
+      gap: 1em;
+    }
+  </style>
+  <body>
+    <h1><a href="https://github.com/manas140/unixporn-dots-api">Unixporn-Dots-Api</a></h1>
+    The Unixporn-Dots API is a simple API that returns dotfiles, gtk-themes and icons from unixporn-dots repository.
+    <h3>Example:</h3>
+    <ul>
+      <li>fetch all icons, gtk-themes or dotfiles<br><p>https://unixporn-dots-api.vercel.app/api/<b>{icons,dotfiles,gtk-themes}</b></p></li><br>
+      <li>fetch icon, gtk-theme or dotfile by title<br><p>https://unixporn-dots-api.vercel.app/api/<b>{icons,dotfiles,gtk-themes}</b>?title=<b>{input}</b></p></li><br>
+    </ul>
+   </body>
 </html>

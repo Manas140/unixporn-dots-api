@@ -1,15 +1,23 @@
 const http = require("http");
 const https = require("https");
 const path = require('path');
+const qs = require('querystring');
 const fs = require("fs");
 
 const server = http.createServer((req, res) => {
   if (req.url.startsWith('/api')) {
     res.writeHead(200, {"Content-Type": "application/json"});
     const url = req.url.split('/');
+    let path = url[2];
+    let query = null;
+    if (url[2] && url[2].includes('?')) {
+      const q = url[2].split('?');
+      path = q[0];
+      query = qs.parse(q[1]);
+    }
 
-    if ( ["dotfiles", "gtk-themes", "icons"].includes(url[2])) {
-      https.get('https://raw.githubusercontent.com/unixporn-dots/unixporn-dots.github.io/main/js/assets/' + url[2] + '.js', resp => {
+    if ( ['dotfiles', 'gtk-themes', 'icons'].includes(path)) {
+      https.get('https://raw.githubusercontent.com/unixporn-dots/unixporn-dots.github.io/main/js/assets/' + path + '.js', resp => {
         let data = [];
 
         resp.on('data', chunk => {
@@ -24,12 +32,12 @@ const server = http.createServer((req, res) => {
           data = eval(`[\n${data.join('\n')}`); 
           
           let json = null;
-
-          if (url[3]) {
+          
+          if (query && query.title) {
             let i = 0
             while (i < data.length) {
-              if (data[i].title.toLowerCase() == url[3].toLowerCase() ) {
-                json = data[1];
+              if (data[i].title.toLowerCase() == query.title.toLowerCase() ) {
+                json = data[i];
                 break;
               }
               i++;
