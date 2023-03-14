@@ -50,16 +50,6 @@ const server = http.createServer((req, res) => {
       res.end(`{ "status": "Not a valid path" }`)
     }
   }
-  else if (req.url === "/home" ) {
-    fs.readFile('./index.html', function (err, html) {
-      if (err) {
-        throw err; 
-      }
-      res.writeHead(200, {"Content-Type": "text/html"});  
-      res.write(html);  
-      res.end();
-    })
-  }
   else if (req.url === "/") { 
     res.writeHead(301, {Location: "https://unixporn-dots.github.io"});  
     res.end();
