@@ -1,5 +1,6 @@
 const http = require("http");
 const https = require("https");
+const path = require('path');
 const fs = require("fs");
 
 const server = http.createServer((req, res) => {
@@ -50,8 +51,9 @@ const server = http.createServer((req, res) => {
       res.end(`{ "status": "Not a valid path" }`)
     }
   }
-  else if (req.url === "/home" ) {
-    fs.readFile('./home.html', function (err, html) {
+  else if (req.url === "/home" ) {  
+    const file = path.join(process.cwd(), 'home.html');
+    fs.readFile(file, function (err, html) {
       if (err) {
         throw err; 
       }
