@@ -59,7 +59,7 @@ const server = http.createServer((req, res) => {
       res.end(`{ "status": "Not a valid path" }`)
     }
   }
-  else if (req.url === "/home" ) {  
+  else if (req.url === "/home" || req.url === '/home/' ) {  
     const file = path.join(process.cwd(), 'home.html');
     fs.readFile(file, function (err, html) {
       if (err) {
